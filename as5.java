@@ -1,0 +1,39 @@
+package _26;
+
+import java.util.Stack;
+
+public class as5 {
+    public static boolean isBalanced(String str) {
+        Stack<Character> s = new Stack<Character>();
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c == '(') {
+                s.push(c);
+            } else if (c == ')') {
+                if (s.isEmpty()) {
+                    return false;
+                }
+                s.pop();
+            }
+        }
+
+        return s.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        String str1 = "((()))()()";
+        String str2 = "())((())";
+
+        if (isBalanced(str1)) {
+            System.out.println("Balanced");
+        } else {
+            System.out.println("Not Balanced");
+        }
+
+        if (isBalanced(str2)) {
+            System.out.println("Balanced");
+        } else {
+            System.out.println("Not Balanced");
+        }
+    }
+}
